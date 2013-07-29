@@ -1,3 +1,5 @@
+// from  https://code.google.com/p/webrtc/source/browse/stable/samples/js/base/adapter.js
+
 var RTCPeerConnection = null;
 var getUserMedia = null;
 var attachMediaStream = null;

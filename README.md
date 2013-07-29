@@ -1,4 +1,11 @@
-WebRTCChatApp
-=============
+Simple WebRTC Chat App
+======
 
-a simple video/audio/text Chat App to demonstrate WebRTC functionalities
+features:
+ * Audio/Video Stream
+ * chat
+
+Additional Sources:
+ * Speech Bubbles: http://cssarrowplease.com/
+ * jQuery: http://jquery.com/
+ * adapter.js: https://code.google.com/p/webrtc/source/browse/stable/samples/js/base/adapter.js

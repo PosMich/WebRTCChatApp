@@ -95,7 +95,7 @@ $( document ).ready( function() {
     function onRemoteStreamAdded( event ) {
         console.log( "Remote Stream added" );
         old_screen_overlay = $(".callee .screen-overlay").html();
-        $(".callee .screen-overlay").html("waiting for video");
+        //$(".callee .screen-overlay").html("waiting for video");
         attachMediaStream( $(".callee video")[0], event.stream );
         remoteStream = event.stream;
         waitForRemoteVideo();
