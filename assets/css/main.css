@@ -1,0 +1,194 @@
+body {
+
+    /* IE10 Consumer Preview *
+    background-image: -ms-radial-gradient(center, ellipse closest-corner, #0000B0 0%, #0055FF 100%);
+
+    /* Mozilla Firefox *
+    background-image: -moz-radial-gradient(center, ellipse closest-corner, #0000B0 0%, #0055FF 100%);
+
+    /* Opera *
+    background-image: -o-radial-gradient(center, ellipse closest-corner, #0000B0 0%, #0055FF 100%);
+
+    /* Webkit (Safari/Chrome 10) *
+    background-image: -webkit-gradient(radial, center center, 0, center center, 497, color-stop(0, #0000B0), color-stop(1, #0055FF));
+
+    /* Webkit (Chrome 11+) *
+    background-image: -webkit-radial-gradient(center, ellipse closest-corner, #0000B0 0%, #0055FF 100%);
+
+    /* W3C Markup, IE10 Release Preview *
+    background-image: radial-gradient(ellipse closest-corner at center, #0000B0 0%, #0055FF 100%);
+*/
+}
+
+.container {
+    margin: 0 auto;
+    width: 1004px;
+}
+.screen-outer {
+    float:left;
+}
+.screen {
+    margin-left:44px;
+    margin-right:44px;
+    width:400px;
+    height:350px;
+
+    -webkit-border-radius: 55px;
+    border-radius: 55px;
+    border: 5px solid black;
+    background: #FFFFCC;
+    margin-bottom:0px;
+}
+.screen-inner {
+}
+.screen-overlay {
+    position:relative;
+    top:-250px;
+    margin:50px;
+    color:white;
+    text-align: center
+}
+.clear {
+    clear:both;
+}
+.pedestal {
+    position:relative;
+    left:147px;
+    top:-30px;
+    z-index:-1;
+    width:200px;
+    height:100px;
+    -webkit-border-radius: 80px / 50px;
+    border-radius: 80px / 50px;
+    background: #FFFFCC;
+    border: 7px solid black;
+    transform: rotateX(70deg);
+    -webkit-transform: rotateX(70deg);
+}
+.pedestal-inner {
+    border: 5px solid black;
+    background: #FFFFCC;
+    width:100px;
+    height:100px;
+    margin: 0 auto;
+    position:relative;
+    top: -50px;
+}
+video {
+    position:relative;
+    top:20px;
+    margin:20px;
+    width:358px;
+    height:270px;
+    /*-webkit-border-radius: 50px;
+    border-radius: 50px;*/
+    background-color:black;
+    border:2px solid black;
+}
+
+.name {
+    margin: 0 auto;
+    text-align:center;
+    position:relative;
+    top:-50px;
+    font-size:20px;
+    color:red;
+    font-family: 'Patua One', cursive;
+}
+.caller .name {
+    color:red;
+}
+
+.callee .name {
+    color:blue;
+}
+
+.log {
+    overflow-y:scroll;
+    overflow-x:hidden;
+    width:820px;
+    height:140px;
+    border:1px solid black;
+    padding:10px;
+}
+
+.input {
+    margin:0 auto;
+    width:840px;
+}
+input {
+    width:760px;
+}
+button {
+    width:76px;
+}
+
+
+.caller .speechbubble {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    background: #d58a8a;
+    border: 4px solid #f5c6c6;
+    padding:10px;
+    width:300px;
+}
+.caller  .speechbubble:after, .caller .speechbubble:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.caller .speechbubble:after {
+    border-color: rgba(213, 138, 138, 0);
+    border-top-color: #d58a8a;
+    border-width: 30px;
+    left: 50%;
+    margin-left: -90px;
+}
+.caller .speechbubble:before {
+    border-color: rgba(245, 198, 198, 0);
+    border-top-color: #f5c6c6;
+    border-width: 36px;
+    left: 50%;
+    margin-left: -96px;
+}
+
+.callee .speechbubble {
+    position: absolute;
+    top:0px;
+    left:0px;
+    background: #88b7d5;
+    border: 4px solid #c2e1f5;
+    padding:10px;
+    width:300px;
+}
+.callee .speechbubble:after, .callee .speechbubble:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.callee .speechbubble:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-top-color: #88b7d5;
+    border-width: 30px;
+    left: 50%;
+    margin-left: 30px;
+}
+.callee .speechbubble:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-top-color: #c2e1f5;
+    border-width: 36px;
+    left: 50%;
+    margin-left: 24px;
+}
+

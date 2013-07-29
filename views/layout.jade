@@ -1,0 +1,57 @@
+!!! 5
+html
+    head
+        title WebRTC Chat App
+        meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="description", content="webRTC Chat App")
+        meta(name="author", content="Michael Poschacher")
+
+        link(href='http://fonts.googleapis.com/css?family=Patua+One', rel='stylesheet', type='text/css')
+        //-link(type="image/x-icon", rel="icon", href="/favicon.ico")
+        //-link(type="image/x-icon", rel="shortcut icon", href="/favicon.ico")
+        != css("main.css")
+
+    body
+        .container
+            .screen-outer.caller
+                .screen
+                    video(src="", autoplay)
+                    .screen-overlay
+                .pedestal
+                    .pedestal-inner
+                .name
+                    | You
+            .screen-outer.callee
+                .screen
+                    video(src="", autoplay)
+                    .screen-overlay
+                        | Please share following URL with with the wan/woman you want to talk with:
+                        br
+                        br
+                        span
+                            | Waiting for getUserMedia() / Server response.
+                .pedestal
+                    .pedestal-inner
+                .name
+                    | Guest
+            .clear
+            .input
+                input.send(type="text")
+                button
+                    | Send
+                .log
+        .caller
+            .speechbubble
+                | test 
+        .callee
+            .speechbubble
+                | test 
+
+!= js("lib/jquery-2.0.3.min")
+!= js("lib/adapter.js")
+!= js("main")
+if room === null
+    != js("caller")
+else
+    != js("callee")
