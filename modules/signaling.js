@@ -6,35 +6,6 @@ rooms = require("./rooms");
 
 WebSocketServer = require("ws").Server;
 
-/*
-    WebSocket stuff
-
-    type of messages:
-        --> "login": from driver/car to server
-            --> if msg.user is car
-                --> check Cars for id, validate password
-                    --> password correct: add to driver, enable signaling
-            --> if msg.user is driver
-        --> "offer": from driver to car
-            --> if signaling enabled
-                --> sent offer to car
-            --> else
-                --> kill connection
-        --> "answer": from car to driver
-            --> if signaling enabled
-                --> send answer to driver
-            --> else
-                --> kill connection
-        --> "candidate": from car to driver vice versa
-            --> if signaling enabled
-                --> exchange canditates
-            --> else
-                --> kill connection
-        --> "bye": from car to driver vice versa
-            --> don't know
-*/
-
-
 exports.signaling = function(server) {
     var wss;
     wss = new WebSocketServer({
@@ -58,22 +29,15 @@ exports.signaling = function(server) {
                         ws.send( JSON.stringify( { type: "success", msg: roomName } ) );
                         break;
                     case "joinRoom":
-
                         debug.info( "try to join" + msg.room);
-                        debug.info( "got: ");
-
                         room = rooms.get( msg.room );
-                        console.log( "room name: ");
-                        console.log( room.name );
                         if ( room.isFull() ) {
                             debug.info( "room is full" );
                             ws.send( JSON.stringify( {type: "error", msg:"Room is full!" } ) );
                             ws.close();
                         } else {
-                            debug.info( "let's go!" );
                             ws.type  = "callee"
                             ws.other = room.getCaller();
-                            console.log( ws.other );
                             ws.room = msg.room;
                             ws.other.other = ws;
                             room.setCallee( ws );
@@ -81,13 +45,13 @@ exports.signaling = function(server) {
                         break;
                     case "sdp":
                         if (ws.other != null && ws.other != "") {
-                            ws.other.send(JSON.stringify(msg));
+                            ws.other.send( JSON.stringify(msg) );
                             debug.info("sdp sent from "+ws.type);
                         }
                         break;
                     case "ice":
                         if (ws.other != null && ws.other != "") {
-                            ws.other.send(JSON.stringify( msg ));
+                            ws.other.send( JSON.stringify(msg) );
                             debug.info("ice sent from "+ws.type);
                         }
                         break;
