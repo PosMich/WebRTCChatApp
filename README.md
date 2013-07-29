@@ -10,8 +10,8 @@ tested with:
 
 features:
 ---------
- * Audio/Video Stream
- * chat
+ * Audio/Video Stream --> getUserMedia(), RTCPeerConnection
+ * chat               --> RTCDataChannel
 
 Additional Sources:
 -------------------
